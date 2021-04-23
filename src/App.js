@@ -29,9 +29,12 @@ let dataList = [
 class App extends Component {
   car() {
     return dataList.map((v) => {
-      return <ListItem data={v} key={v.id} />
+      return <ListItem data={v} key={v.id} onDelete={this.handleDelete} />
     })
-  }
+  };
+  handleDelete = (id) => {
+    console.log('id', id)
+  };
   render() {
     return (
       <div className="container">
