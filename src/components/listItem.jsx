@@ -23,6 +23,7 @@ class ListItem extends Component {
     })
   };
   render() {
+      console.log('刪除')
     return (
       <div className="row mb-3">
         <div className="col-6 themed-grid-col">
@@ -34,6 +35,7 @@ class ListItem extends Component {
           <span className={cls('digital')}> {this.state.managCount}</span>
           <button onClick={() => this.handleIncrease(this.props.data.id)} type="button" className="btn btn-primary"> + </button>
         </div>
+        <div className="col-2 themed-grid-col">￥{this.props.data.price * this.state.managCount}</div>
         <div className="col-1 themed-grid-col">
           <button onClick={() => { this.props.onDelete(this.props.data.id) }} type="button" className="btn btn-sm btn-danger"> 删除 </button>
         </div>
