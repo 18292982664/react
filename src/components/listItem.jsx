@@ -7,7 +7,7 @@ class ListItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      managCount: 10
+      managCount: this.props.data.value
     }
   };
   handleDecrease = () => {
