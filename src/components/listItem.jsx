@@ -4,38 +4,20 @@ import classnames from 'classnames/bind'
 const cls = classnames.bind(style)
 const stock = 0;
 class ListItem extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      managCount: this.props.data.value
-    }
-  };
-  handleDecrease = () => {
-    this.setState({
-      managCount: this.state.managCount - 1
-    })
-  };
-  handleIncrease = () => {
-    this.setState({
-      managCount: this.state.managCount + 1
-    }, () => {
-      console.log('56')
-    })
-  };
   render() {
-      console.log('刪除')
+    console.log('刪除')
     return (
       <div className="row mb-3">
         <div className="col-6 themed-grid-col">
           <span className={cls('title')}>{this.props.data.name}</span>
         </div>
         <div className="col-1 themed-grid-col">￥{this.props.data.price}</div>
-        <div className={"col-2 themed-grid-col" + (this.state.managCount ? '' : '-s')} >
-          <button onClick={(e) => this.handleDecrease(this.props.data.id, e)} type="button" className="btn btn-primary"> - </button>
-          <span className={cls('digital')}> {this.state.managCount}</span>
-          <button onClick={() => this.handleIncrease(this.props.data.id)} type="button" className="btn btn-primary"> + </button>
+        <div className={"col-2 themed-grid-col" + (this.props.data.value ? '' : '-s')} >
+          <button onClick={() => this.props.onIncrease(this.props.data.id)} type="button" className="btn btn-primary"> - </button>
+          <span className={cls('digital')}> {this.props.data.value}</span>
+          <button onClick={() => this.props.onDecrease(this.props.data.id)} type="button" className="btn btn-primary"> + </button>
         </div>
-        <div className="col-2 themed-grid-col">￥{this.props.data.price * this.state.managCount}</div>
+        <div className="col-2 themed-grid-col">￥{this.props.data.price * this.props.data.value}</div>
         <div className="col-1 themed-grid-col">
           <button onClick={() => { this.props.onDelete(this.props.data.id) }} type="button" className="btn btn-sm btn-danger"> 删除 </button>
         </div>
