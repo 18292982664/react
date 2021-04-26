@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import './App.css';
 import ListPage from './components/listPage';
 import AavBar from './components/navBar';
+import ItemA from './components/hoc/itemA'
+import ItemC from './components/pr/itemC'
+import Movies from './components/movies'
 // import ListItem from './components/listItemFun';
 
 
@@ -107,6 +110,9 @@ class App extends PureComponent {
           handleIncrease={this.handleIncrease}
           handleDelete={this.handleDelete}
         />
+        <ItemA id={1} />
+        <ItemC />
+        <Movies />
       </>
     );
   }

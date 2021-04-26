@@ -16,8 +16,6 @@ class WithTooltip extends React.Component {
     )
   }
 }
-
-
 export default WithTooltip;
 /**
  * 高阶组件
