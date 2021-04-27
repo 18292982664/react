@@ -112,6 +112,7 @@ class App extends PureComponent {
         />
         <ItemA id={1} />
         <ItemC />
+        <div className="container ">---------------分-------------------割--------------------线--------------</div>
         <Movies />
       </>
     );

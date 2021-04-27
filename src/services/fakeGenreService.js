@@ -12,7 +12,6 @@ export const genres = [
   "音乐",
   "惊悚"
 ];
-
 export function getGenres() {
   return genres.filter(g => g);
 }

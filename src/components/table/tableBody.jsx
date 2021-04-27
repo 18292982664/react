@@ -1,9 +1,29 @@
-import React, { PureComponent } from 'react';
-class TableBody extends Component {
-  state = {}
-  render() {
-    return ( <div></div> );
-  }
-}
+import React from 'react';
+import _ from "lodash";
+const TableBody = ({ columns, data }) => {
+  const renderCell = (item, column) => {
+    if (column.content) {
+      return column.content(item);
+    } else {
+      return _.get(item, column.path);
+    }
+  };
+
+  const createKey = (item, column) => {
+    return item.id + (column.path || column.key);
+  };
+
+  return (
+    <tbody>
+      {data.map((item) => (
+        <tr key={item.id}>
+          {columns.map((column) => (
+            <td key={createKey(item, column)}>{renderCell(item, column)}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  );
+};
 
 export default TableBody;
