@@ -33,12 +33,18 @@ class Movies extends Component {
   }
   getPagedData = () => {
     const { selectedGenre, movies: allMovies } = this.state;
-    console.log('1', selectedGenre)
-    console.log('2', allMovies)
     let filtered = selectedGenre && selectedGenre != "全部电影"
       ? allMovies.filter(v => v.genres.indexOf(selectedGenre) >= 0)
       : allMovies
+    filtered.sort((a, b) => {
+      return b.rating.average - a.rating.average
+    })
     return { totalCount: filtered.length, movies: filtered }
+  }
+  //点击排序
+  handleratingOrder = (e) => {
+    let label = e.label;//average
+    console.log(label)
   }
   render() {
     const { genres, selectedGenre } = this.state;
@@ -57,7 +63,10 @@ class Movies extends Component {
             totalCount ? (
               <div className="col" >
                 <div>共{totalCount}条数据</div>
-                <MoviesTable movies={movies} onLike={this.handleLike} />
+                <MoviesTable
+                  movies={movies}
+                  onLike={this.handleLike}
+                  onRatingOrder={this.handleratingOrder} />
               </div>) :
               (<div className="col" >{element}</div>)
           }

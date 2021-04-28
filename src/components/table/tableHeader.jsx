@@ -1,17 +1,17 @@
 import React from 'react';
-const TableHeader = ({ columns }) => {
+const TableHeader = ({ columns, onRatingOrder }) => {
   return (
-    <header  >
-      <tr  >
+    <thead>
+      <tr>
         {
           columns.map(item => (
-            <th key={item.path || item.key}>
+            <th key={item.path || item.key} onClick={() => onRatingOrder(item)}>
               {item.label}
             </th>
           ))
         }
       </tr>
-    </header>
+    </thead>
   );
 }
 

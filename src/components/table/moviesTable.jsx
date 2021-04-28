@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TableHeader from './tableHeader';
 import TableBody from './tableBody'
 import Like from '../common/like';
-const MoviesTable = ({ movies, onLike }) => {
+const MoviesTable = ({ movies, onLike, onRatingOrder }) => {
   const columns = [
     {
       path: "title",
@@ -26,7 +26,7 @@ const MoviesTable = ({ movies, onLike }) => {
   return (
     <div className="table-responsive ">
       <table className="table ">
-        <TableHeader columns={columns} />
+        <TableHeader columns={columns} onRatingOrder={onRatingOrder} />
         <TableBody columns={columns} data={movies} />
       </table>
     </div >

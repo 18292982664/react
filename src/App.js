@@ -5,6 +5,7 @@ import AavBar from './components/navBar';
 import ItemA from './components/hoc/itemA'
 import ItemC from './components/pr/itemC'
 import Movies from './components/movies'
+import { Route } from 'react-router-dom';
 // import ListItem from './components/listItemFun';
 
 
@@ -100,6 +101,10 @@ class App extends PureComponent {
   render() {
     return (
       <>
+        <div className="container">
+          <Route path="/movies" component={Movies} />
+        </div>
+
         <AavBar
           onReset={this.handleReset}
           onTotal={this.onTotal}
@@ -114,6 +119,7 @@ class App extends PureComponent {
         <ItemC />
         <div className="container ">---------------分-------------------割--------------------线--------------</div>
         <Movies />
+
       </>
     );
   }
